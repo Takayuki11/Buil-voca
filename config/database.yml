@@ -51,6 +51,6 @@ production:
   adapter: postgresql
   encoding: unicode
   pool: 5
-  database: buil-voca_development
-  username: microposts
-  password: <%= ENV['MESSAGE-BOARD_DATABASE_PASSWORD'] %>
+  database: d4kgo71ggrt31h
+  username: aurxelxedgbyze
+  password: <%= ENV['3c742142c122b15619aac64fdd854ca323ba4a5b6a81be53da7696ce7dd810f9'] %>
