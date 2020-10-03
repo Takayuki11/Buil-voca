@@ -5,7 +5,7 @@
         <% if @user.image? %>
           <%= image_tag @user.image.thumb.url, :size => '30x30', class: "user-image" %>
         <% else %>
-          <%= image_tag "default.jpg", :size => '150x150', class: "mx-auto d-block" %>
+          <%= image_tag "default.jpg", :size => '30x30', class: "mx-auto d-block" %>
         <% end %>
         <div class="media-body">
           <div>
