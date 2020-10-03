@@ -36,14 +36,14 @@ end
     )
 end
 
+
 30.times do |t|
-  User.find(8).each do |user|
-    user.words.create(
-      content: "word#{t + 1}",
-      meaning: "meaning#{t + 1}",
-      example: "example#{t + 1}",
-      eiken: false,
-      toeic: true
-      )
-  end
+  Word.create(
+    content: "word#{t + 1}",
+    meaning: "meaning#{t + 1}",
+    example: "example#{t + 1}",
+    user_id: 8,
+    eiken: false,
+    toeic: true
+    )
 end
