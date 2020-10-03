@@ -48,7 +48,9 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: buil-voca_production
-  username: buil-voca
-  password: <%= ENV['BUIL-VOCA_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  database: buil-voca_development
+  username: microposts
+  password: <%= ENV['MESSAGE-BOARD_DATABASE_PASSWORD'] %>
