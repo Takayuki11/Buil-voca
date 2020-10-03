@@ -15,31 +15,31 @@
   )
 end
 
-5.times do |n|
+5.times do |s|
   User.create(
-    email: "test#{n + 1}@test.com",
-    name: "テスト太郎先生#{n + 1}",
-    password: "test#{n + 1}",
-    password_confirmation: "test#{n + 1}",
+    email: "test#{s + 1}@test.com",
+    name: "テスト太郎先生#{s + 1}",
+    password: "test#{s + 1}",
+    password_confirmation: "test#{s + 1}",
     teacher: true
   )
 end
 
-30.times do |n|
+30.times do |e|
   Word.create(
-    content: "word#{n + 1}",
-    meaning: "meaning#{n + 1}",
-    example: "example#{n + 1}",
+    content: "word#{e + 1}",
+    meaning: "meaning#{e + 1}",
+    example: "example#{e + 1}",
     eiken: true,
     toeic: false
     )
 end
 
-30.times do |n|
+30.times do |t|
   Word.create(
-    content: "word#{n + 1}",
-    meaning: "meaning#{n + 1}",
-    example: "example#{n + 1}",
+    content: "word#{t + 1}",
+    meaning: "meaning#{t + 1}",
+    example: "example#{t + 1}",
     eiken: false,
     toeic: true
     )
