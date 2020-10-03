@@ -3,7 +3,8 @@ class CreateUsers < ActiveRecord::Migration[5.2]
     create_table :users do |t|
       t.string :name
       t.string :email
-      t.string :level
+      t.string :eikenlevel
+      t.string :toeiclevel
       t.string :goal
       t.string :password_digest
       t.boolean :teache, default:false

@@ -1,0 +1,20 @@
+<div>
+  <h1><%= @word.content%></h1>
+  <p>意味：<%= @word.meaning %></p>
+  <p>例文：<%= @word.example %></p>
+</div>
+
+<% if current_user.teacher == false %>
+  <%= render "favorites/favorite_button", other_word: @word %>
+<% end %>
+<% if current_user.teacher == true %>
+  <span><%= link_to "編集", edit_word_path(@word), class: "btn btn-success" %></span>
+  <span><%= link_to "削除", @word , method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: "btn btn-danger" %></span>
+<% end %>
+<div>
+  <% if @word.eiken == true %>
+    <%= link_to "一覧ページへ戻る", eiken_words_path %>
+  <% else %>
+    <%= link_to "一覧ページへ戻る", toeic_words_path %>
+  <% end %>
+</div>

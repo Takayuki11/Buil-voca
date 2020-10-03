@@ -1,0 +1,13 @@
+<ul>
+  <% words.each_with_index do |word, i| %>
+      <li>
+        <%= link_to i+1 , word %>:<%= word.content %><%= word.meaning %><%= word.example %>
+      </li>
+  <% end %>
+</ul>
+<% if @eiken_words %>
+  <%= link_to "Toeicの単語一覧へ",  toeic_words_path %>
+<% else %>
+  <%= link_to "英検の単語一覧へ",  eiken_words_path %>
+<% end %>
+  <%= paginate words %>

@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buil Voca</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     
@@ -18,13 +20,11 @@
 
   <body>
     <%= render 'layouts/navbar' %>
-    <div class="container mx-auto" style="width: 80vw">
-      
+    <div>
       <%= render 'layouts/flash_messages' %>
   
       <%= yield %>
       
     </div>
-    <%= render 'layouts/footer' %>
   </body>
 </html>

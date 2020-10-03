@@ -1,25 +1,90 @@
-<div class="main-pic">
-    <img class="img-fluid" src="assets/bVmPZj6wMRETLIC1599302692_1599302740.jpg">
-    <p>Building up <br> your vocabulary <br> as efficiently as possible </p>
-    <%= link_to "Sign up", signup_path, class: "btn btn-primary rounded signup" %>
-</div>
-<div>
-    <h2 class="mt-5">Buil Voca（ビルボキャ）とは？</h2>
-    <p>
-    Buil Vocaとは、進化し続ける英単語アプリケーションです。​<br>
-    Buil Vocaは、英語試験のスペシャリストを集め、試験別に出やすい単語をまとめ、見やすくしました。Buil Vocaの教員は、皆様に実際に試験に出る英単語に触れてもらうため、英語の試験を継続的に受け続け、Buil Vocaの英単語を更新しています。<br>
-    加えて、ユーザー機能で単語をお気に入りに入れることで、自分だけの単語帳を作ることができます。<br>
-    ほかのユーザーのお気に入り単語も見ることができるので、お友達などとわからない単語を共有することもできます。ぜひ、Buil Vocaを利用して、英語の試験に合格しましょう！！
-    </p>
-</div>
-<div>
-    <h2 class="mt-5">テストの種類</h2>
-    <div class="tests d-flex row">
-        <div class="col-sm-6 ">
-            <h5 class="circle eiken text-center">英検</h5>
+<% if logged_in? %>
+<div class="container mx-auto" style="width: 80vw">
+    <div class="row">
+      <div class=" col-12 col-sm-4">
+        <div class="text-center">
+          <% if @user.image? %>
+            <%= image_tag @user.image.thumb.url, class: "user-image" %>
+          <% else %>
+            <%= image_tag "default.jpg", :size => '150x150', class: "mx-auto d-block" %>
+          <% end %>
+          <div>
+            <p class="text-center"><%= @user.name %></p>
+          </div>
+          <%= render "relationships/follow_button", user: @user %>
         </div>
-        <div class="col-sm-6">
-            <h5 class="circle toeic text-center">Toeic</h5>
+      </div>
+      <div class="col-12 col-sm-8">
+        <ul class="nav nav-tabs nav-justified mb-3">
+          <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">User's information</a></li>
+          <li class="nav-item"><a href="<%= likes_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(likes_user_path(@user)) %>">Vocabulary  <span class="badge badge-secondary"><%= @count_likes %></span></a></li>
+          <li class="nav-item"><a href="<%= followings_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followings_user_path(@user)) %>">Followings  <span class="badge badge-secondary"><%= @count_followings %></span></a></li>
+          <li class="nav-item"><a href="<%= followers_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followers_user_path(@user)) %>">Followers  <span class="badge badge-secondary"><%= @count_followers %></span></a></li>
+        </ul>
+        <div class="mb-4 d-inline-flex">
+          <p>あなたのレベル：</p>
+          <div>
+            <p><%= @user.eikenlevel %></p>
+            <p><%= @user.toeiclevel %></p>
+          </div>
+        </div>
+        <p class="mb-3">目標：<%= @user.goal %></p>
+        <% if @user == current_user %>
+          <%= link_to "プロフィールを編集", edit_user_path(@user) %>
+        <% end %>
+      </div>
+    </div>
+    <div class="row mt-4 mb-4">
+      <div class="col-6 bg-success rounded p-4 text-center"><%= link_to "英検", eiken_words_path %></div>
+      <div class="col-6 bg-warning rounded p-4 text-center"><%= link_to "Toeic", toeic_words_path %></div>
+    </div>
+  </div>
+<% else %>
+<div class="container mx-auto" style="width: 80vw">
+    <div class="main-pic">
+        <img class="img-fluid" src="assets/bVmPZj6wMRETLIC1599302692_1599302740.jpg">
+        <p>Building up <br> your vocabulary <br> as efficiently as possible </p>
+        <%= link_to "Sign up", signup_path, class: "btn btn-primary rounded signup" %>
+    </div>
+    <div>
+        <h2 class="mt-5">Buil Voca（ビルボキャ）とは？</h2>
+        <p>
+        Buil Vocaとは、進化し続ける英単語アプリケーションです。​<br>
+        Buil Vocaは、英語試験のスペシャリストを集め、試験別に出やすい単語をまとめ、見やすくしました。Buil Vocaの教員は、皆様に実際に試験に出る英単語に触れてもらうため、英語の試験を継続的に受け続け、Buil Vocaの英単語を更新しています。<br>
+        加えて、ユーザー機能で単語をお気に入りに入れることで、自分だけの単語帳を作ることができます。<br>
+        ほかのユーザーのお気に入り単語も見ることができるので、お友達などとわからない単語を共有することもできます。ぜひ、Buil Vocaを利用して、英語の試験に合格しましょう！！
+        </p>
+    </div>
+    <div>
+        <h2 class="mt-5">テストの種類</h2>
+        <div class="tests d-flex row">
+            <div class="col-sm-6 ">
+                <h5 class="circle eiken text-center"><%= link_to "英検", login_path %></h5>
+            </div>
+            <div class="col-sm-6">
+                <h5 class="circle toeic text-center"><%= link_to "Toeic", login_path %></h5>
+            </div>
         </div>
     </div>
 </div>
+
+<div class="footer">
+    <footer class="mx-auto" style="width: 80vw">
+        <div class="d-flex row">
+            <div class="footer-left col-6">
+                <p>最新情報</p>
+                <p>先生紹介</p>
+                <p>求人情報</p>
+            </div>
+            <div class="footer-right col-6">
+                <p>お問い合わせ</p>
+                <address class="ml-5">
+                   <small class="d-block mb-4">電話: 090-0000-0000</small>
+                   <small class="d-block mb-4">メール: 00000@gmail.com</small>
+                   <small class="d-block">住所: 東京都～～区～～</small>
+                </address>
+            </div>
+        </div>
+    </footer>
+</div>
+<% end %>

@@ -1,42 +1,4 @@
-<%  if current_user.teacher == true %>
-  <div class="container mx-auto" style="width: 80vw">
-    
-    <%= form_with(model: @word, local: true) do |f| %>
-      <%= render 'layouts/error_messages', model: f.object %>
-      
-      <div class="form-group">
-        <%= f.label :eiken, "英検" %>
-        <%= f.check_box :eiken %>
-      </div>
-      
-      <div class="form-group">
-        <%= f.label :toeic, "Toeic" %>
-        <%= f.check_box :toeic %>
-      </div>
-      
-      <div class="form-group">
-        <%= f.label :content, "Word" %>
-        <%= f.text_field :content, class: "form-control" %>
-      </div>
-      
-      <div class="form-group">
-        <%= f.label :meaning, "Meaning" %>
-        <%= f.text_field :meaning, class: "form-control" %>
-      </div>
-      
-      <div class="form-group">
-        <%= f.label :example, "Example" %>
-        <%= f.text_field :example, class: "form-control" %>
-      </div>
-      
-      <%= f.submit "作成", class: "btn btn-primary btn-block" %>
-    <% end %>
-    
-    <%= link_to "英検の単語一覧", eiken_words_path %>
-    <%= link_to "Toeicの単語一覧", toeic_words_path %>
-  </div>
-<% else %>
-  <div class="container mx-auto" style="width: 80vw">
+<div class="container mx-auto" style="width: 80vw">
     <div class="row">
       <div class=" col-12 col-sm-4">
         <div class="text-center">
@@ -51,29 +13,18 @@
           <%= render "relationships/follow_button", user: @user %>
         </div>
       </div>
-      <div class="col-12 col-sm-8">
+      <div class="col-sm-8">
         <ul class="nav nav-tabs nav-justified mb-3">
           <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">User's information</a></li>
           <li class="nav-item"><a href="<%= likes_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(likes_user_path(@user)) %>">Vocabulary  <span class="badge badge-secondary"><%= @count_likes %></span></a></li>
           <li class="nav-item"><a href="<%= followings_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followings_user_path(@user)) %>">Followings  <span class="badge badge-secondary"><%= @count_followings %></span></a></li>
           <li class="nav-item"><a href="<%= followers_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followers_user_path(@user)) %>">Followers  <span class="badge badge-secondary"><%= @count_followers %></span></a></li>
         </ul>
-        <div class="mb-4 d-inline-flex">
-          <p>あなたのレベル：</p>
-          <div>
-            <p><%= @user.eikenlevel %></p>
-            <p><%= @user.toeiclevel %></p>
-          </div>
-        </div>
-        <p class="mb-3">目標：<%= @user.goal %></p>
-        <% if @user == current_user %>
-          <%= link_to "プロフィールを編集", edit_user_path(@user) %>
-        <% end %>
+        <%= render 'users', users: @followings %>
       </div>
     </div>
     <div class="row mt-4 mb-4">
       <div class="col-6 bg-success rounded p-4 text-center"><%= link_to "英検", eiken_words_path %></div>
       <div class="col-6 bg-warning rounded p-4 text-center"><%= link_to "Toeic", toeic_words_path %></div>
     </div>
-  </div>
-<% end %>
+</div>

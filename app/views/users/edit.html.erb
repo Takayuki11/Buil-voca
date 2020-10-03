@@ -1,2 +1,48 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="container mx-auto" style="width: 80vw">
+  <h1><%= @user.name %> のプロフィール編集ページ</h1>
+  
+  
+  <%= form_with(model: @user, local: true) do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
+    
+    <div class="form-group">
+      <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png' %>
+    </div>
+    
+    <div class="form-group">
+        <%= f.label :name, "Name" %>
+        <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+        <%= f.label :email, "Email" %>
+        <%= f.email_field :email, class: "form-control" %>
+    </div>
+    <div class="form-group">
+        <%= f.label :password, "Password" %>
+        <%= f.password_field :password, class: "form-control" %>
+    </div>
+    <div class="form-group">
+        <%= f.label :password_confirmation, "Confirmation" %>
+        <%= f.password_field :password_confirmation, class: "form-control" %>
+    </div>
+    <div class="form-group d-inline-flex">
+      <div>
+        <%= f.label :eikenlevel, "英検" %><br>
+        <%= f.select :eikenlevel, [["1級", "英検1級"], ["準1級", "英検準1級"], ["2級", "英検2級"], ["準2級", "英検準2級"], ["3級", "英検3級"], ["4級", "英検4級"], ["5級", "英検5級"], ["未取得", ""]], include_blank: "選択して下さい" %>
+      </div>
+      <div class="ml-2">
+        <%= f.label :toeiclevel, "Toeic" %><br>
+        <%= f.select :toeiclevel, [["900~990", "Toeic 900~990"], ["800~895", "Toeic 800~895"], ["700~795", "Toeic 700~795"], ["600~695", "Toeic 600~695"], ["500~595", "Toeic 500~595"], ["~495", "Toeic ~495"], ["未取得", ""]], include_blank: "選択して下さい", class: "ml-2" %>
+      </div>
+    </div>
+    
+    
+    <div class="form-group">
+        <%= f.label :goal, "Goal" %>
+        <%= f.text_area :goal, class: "form-control" %>
+    </div>
+    
+    <%= f.submit "プロフィールを変更", class: "btn btn-primary btn-block mb-4" %>
+              
+  <% end %>
+</div>

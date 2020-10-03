@@ -1,0 +1,42 @@
+<div class="container mx-auto" style="width: 80vw">
+  <div class="row">
+    <div class=" col-12 col-sm-4">
+      <div class="text-center">
+          <% if @user.image? %>
+            <%= image_tag @user.image.thumb.url, class: "user-image" %>
+          <% else %>
+            <%= image_tag "default.jpg", :size => '150x150', class: "mx-auto d-block" %>
+          <% end %>
+          <div>
+            <p class="text-center"><%= @user.name %></p>
+          </div>
+        <%= render "relationships/follow_button", user: @user %>
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <ul class="nav nav-tabs nav-justified mb-3">
+        <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">User's information</a></li>
+        <li class="nav-item"><a href="<%= likes_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(likes_user_path(@user)) %>">Vocabulary <span class="badge badge-secondary"><%= @count_likes %></span></a></li>
+        <li class="nav-item"><a href="<%= followings_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followings_user_path(@user)) %>">Followings  <span class="badge badge-secondary"><%= @count_followings %></span></a></li>
+        <li class="nav-item"><a href="<%= followers_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followers_user_path(@user)) %>">Followers  <span class="badge badge-secondary"><%= @count_followers %></span></a></li>
+      </ul>
+      
+    <ul class="list-unstyled">
+      <% @favorites.each_with_index do |favorite, i| %>
+        <li class="media mb-3">
+          <div class="media-body">
+            <div>
+              <%= link_to i+1, word_path(favorite) %>:<%= favorite.content %>
+            </div>
+          </div>
+        </li>
+      <% end %>
+      <%= paginate @favorites %>
+    </ul>
+    </div>
+  </div>
+  <div class="row mt-4 mb-4">
+    <div class="col-6 bg-success rounded p-4 text-center"><%= link_to "英検", eiken_words_path %></div>
+    <div class="col-6 bg-warning rounded p-4 text-center"><%= link_to "Toeic", toeic_words_path %></div>
+  </div>
+</div>

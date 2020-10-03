@@ -1,0 +1,22 @@
+<% if users.any? %>
+  <ul class="list-unstyled">
+    <% users.each do |user| %>
+      <li class="media">
+        <% if @user.image? %>
+          <%= image_tag @user.image.thumb.url, :size => '30x30', class: "user-image" %>
+        <% else %>
+          <%= image_tag "default.jpg", :size => '150x150', class: "mx-auto d-block" %>
+        <% end %>
+        <div class="media-body">
+          <div>
+            <%= user.name %>
+          </div>
+          <div>
+            <p><%= link_to 'View profile', user_path(user) %></p>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+  <%= paginate users %>
+<% end %>
