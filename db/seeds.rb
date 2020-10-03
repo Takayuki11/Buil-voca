@@ -24,17 +24,18 @@ end
     teacher: true
   )
 end
+
 30.times do |e|
-  User.find(8).each do |user|
-    user.words.create(
-      content: "word#{e + 1}",
-      meaning: "meaning#{e + 1}",
-      example: "example#{e + 1}",
-      eiken: true,
-      toeic: false
-      )
+  Word.create(
+    content: "word#{e + 1}",
+    meaning: "meaning#{e + 1}",
+    example: "example#{e + 1}",
+    user_id: 8,
+    eiken: true,
+    toeic: false
+    )
 end
-end
+
 30.times do |t|
   User.find(8).each do |user|
     user.words.create(
