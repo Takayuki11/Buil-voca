@@ -28,7 +28,7 @@
             <p><%= @user.toeiclevel %></p>
           </div>
         </div>
-        <p class="mb-3">目標：<%= @user.goal %></p>
+        <p class="mb-3" style="word-wrap: break-word;">目標：<%= @user.goal %></p>
         <% if @user == current_user %>
           <%= link_to "プロフィールを編集", edit_user_path(@user) %>
         <% end %>
