@@ -1,5 +1,6 @@
 class WordsController < ApplicationController
   before_action :require_user_logged_in
+  before_action :correct_user, only:[:edit]
   
   # 今回はeikenとtoeicでルーティングを組んだので無視
   # もし英検とTOEICの単語をindexページだけで作りたいときは<link>でパラメーターを飛ばしてあげてそのパラメータで条件文を作る
@@ -65,6 +66,13 @@ class WordsController < ApplicationController
   end
   
   private
+  
+  def correct_user
+    @word = current_user.words.find_by(id: params[:id])
+    unless @word
+      redirect_to root_url
+    end
+  end
   
   def word_params
     params.require(:word).permit(:content, :meaning, :example, :eiken, :toeic)

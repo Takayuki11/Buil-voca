@@ -59,13 +59,13 @@
           <li class="nav-item"><a href="<%= followers_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followers_user_path(@user)) %>">Followers  <span class="badge badge-secondary"><%= @count_followers %></span></a></li>
         </ul>
         <div class="mb-4 d-inline-flex">
-          <p>あなたのレベル：</p>
+          <p>レベル：</p>
           <div>
             <p><%= @user.eikenlevel %></p>
             <p><%= @user.toeiclevel %></p>
           </div>
         </div>
-        <p class="mb-3">目標：<%= @user.goal %></p>
+        <p class="mb-3" style="word-wrap: break-word;">目標：<%= @user.goal %></p>
         <% if @user == current_user %>
           <%= link_to "プロフィールを編集", edit_user_path(@user) %>
         <% end %>

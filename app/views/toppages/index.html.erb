@@ -22,7 +22,7 @@
           <li class="nav-item"><a href="<%= followers_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followers_user_path(@user)) %>">Followers  <span class="badge badge-secondary"><%= @count_followers %></span></a></li>
         </ul>
         <div class="mb-4 d-inline-flex">
-          <p>あなたのレベル：</p>
+          <p>レベル：</p>
           <div>
             <p><%= @user.eikenlevel %></p>
             <p><%= @user.toeiclevel %></p>
