@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     @word = Word.new
     
     @user = User.find(params[:id])
+    counts(@user)
   end
 
   def new
@@ -64,8 +65,8 @@ class UsersController < ApplicationController
   private
   
   def correct_user
-    @user = current_user
-    unless @user
+    @user = User.find_by(id: params[:id])
+    unless @user == current_user
       redirect_to root_url
     end
   end
