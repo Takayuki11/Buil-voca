@@ -1,7 +1,15 @@
 <div class="area">
   <header class="mb-4 fixed-top">
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-      <a class="navbar-brand red" href="/">Buil Voca</a>
+      <% if logged_in? %>
+        <% if current_user.teacher == false %>
+          <%= link_to "Buil Voca", likes_user_path(current_user), class: "navbar-brand" %>
+        <% else %>
+          <%= link_to "Buil Voca", user_path(current_user) , class: "navbar-brand" %>
+        <% end %>
+      <% else %>
+        <a class="navbar-brand" href="/">Buil Voca</a>
+      <% end %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -13,9 +21,15 @@
             <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><%= current_user.name %></a>
             <ul class="dropdown-menu dropdown-menu-right">
-              <li class="dropdown-item"><%= link_to 'My profile', user_path(current_user) %></li>
+              <% if current_user.teacher == false %>
+              <li class="dropdown-item"><%= link_to 'プロフィール', likes_user_path(current_user) %></li>
+              <% else %>
+              <li class="dropdown-item"><%= link_to 'プロフィール', user_path(current_user) %></li>
+              <% end %>
               <li class="dropdown-divider"></li>
-              <li class="dropdown-item"><%= link_to "Logout", logout_path, method: :delete %></li>
+              <li class="dropdown-item"><%= link_to "ログアウト", logout_path, method: :delete %></li>
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-item"><%= link_to "退会", @user, data: { confirm: '本当に削除してよろしいですか？' }, method: :delete %></li>
             </ul>
           </li>
           <% else %>

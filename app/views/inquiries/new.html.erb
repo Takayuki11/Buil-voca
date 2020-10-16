@@ -1,0 +1,32 @@
+<div class="wrapper">
+  <div class="container mx-auto" style="width: 80vw">
+    <div class="text-center">
+      <h3>お問い合わせ</h3>
+    </div>
+    <div class="row mt-4">
+      <div class="menu col-sm-3 text-center">
+        <p class="shadow"><i class="fas fa-question-circle mr-2"></i><span><%= link_to "Q & A", questions_index_path %></span></p>
+        <p class="shadow"><i class="fas fa-chalkboard-teacher mr-2"></i><span><%= link_to "先生紹介", introductions_index_path, data: {"turbolinks" => false} %></span></p>
+        <p class="shadow"><i class="fas fa-user mr-2"></i><span><%= link_to "求人情報", jobs_index_path %></span></p>
+      </div>
+      <div class="col-sm-9">
+        <%= form_with(model: @inquiry, local: true) do |f| %>
+          <%= render 'layouts/error_messages', model: f.object %>
+          
+          <div class="form-group">
+            <%= f.label :name, "お名前" %>
+            <%= f.text_field :name, class: "form-control" %>
+          </div>
+          
+          <div class="form-group">
+            <%= f.label :message, "お問い合わせ内容" %>
+            <%= f.text_area :message, class: "form-control" %>
+          </div>
+          
+          <%= f.submit "送信", class: "btn btn-primary btn-block" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <%= render "layouts/footer" %>
+</div>

@@ -10,6 +10,36 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
+//= require jquery
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+const flip = (selector) =>{
+  
+    if (selector == "teacher1"){
+        $(".card1").toggleClass('is-surface').toggleClass('is-reverse');
+    } else if (selector == "teacher2"){
+        $(".card2").toggleClass('is-surface').toggleClass('is-reverse');
+    } else if (selector == "teacher3"){
+        $(".card3").toggleClass('is-surface').toggleClass('is-reverse');
+    } else if (selector == "teacher4"){
+        $(".card4").toggleClass('is-surface').toggleClass('is-reverse');
+    }
+};
+
+document.addEventListener("turbolinks:load"
+, function () {
+   $(function() {
+    $('.pro').on('click', (e) =>{
+        
+      const selector = $(e.target).attr('id');
+       
+      flip(selector);
+    });
+  });
+  });
+  
+  //ここから cards
+  

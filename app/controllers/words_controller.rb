@@ -75,10 +75,10 @@ class WordsController < ApplicationController
   end
   
   def word_params
-    params.require(:word).permit(:content, :meaning, :example, :eiken, :toeic)
+    params.require(:word).permit(:content, :meaning, :example, :translation, :eiken, :toeic)
   end
   
   def edit_params
-    params.require(:word).permit(:content, :meaning, :example)
+    params.require(:word).permit(:content, :meaning, :example, :translation)
   end
 end

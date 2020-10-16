@@ -5,13 +5,13 @@ class RelationshipsController < ApplicationController
     user = User.find(params[:follow_id])
     current_user.follow(user)
     flash[:success] = "ユーザーをフォローしました"
-    redirect_to user
+    redirect_to likes_user_path(user)
   end
 
   def destroy
     user = User.find(params[:follow_id])
     current_user.unfollow(user)
-    flash[:success] = "ユーザーをフォローしました"
-    redirect_to user
+    flash[:success] = "ユーザーのフォローを解除しました"
+    redirect_to likes_user_path(user)
   end
 end

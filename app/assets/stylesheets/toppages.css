@@ -30,34 +30,23 @@ p{
     margin: 30px 0;
 }
 
-.circle{
-    margin: 0 auto;
-    border-radius: 50%;
-    line-height: 200px;
-    font-weight: bold;
+.information ul{
+    list-style: none;
 }
-.eiken{
-    background-color: #66FF33;
-}
-.toeic{
-    background-color: #FFFF33;
+.information li{
+    border-bottom: 1px dotted #989E99;
 }
 
+.date{
+    background-color: #808080;
+    color: white;
+    padding: 0 10px;
+    border-radius: 5px;
+    margin-right: 15px;
+}
 .footer{
     background-color: #f5f5f5;
 }
 footer{
     padding: 55px 0;
 }
-
-.footer-left{
-    padding-left: 3%;
-}
-.footer-left p{
-    margin-bottom: 40px;
-}
-.footer-right{
-    padding-left: 3%;
-}
-
-

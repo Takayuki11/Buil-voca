@@ -1,0 +1,27 @@
+  <div class="mx-auto" style="width: 80vw">
+  <div class="text-center">
+    <h3>求人情報</h3>
+  </div>
+  <div class="container py-3">
+    <div class="row">
+      <div class="menu col-sm-3 text-center">
+        <p class="shadow"><i class="fas fa-question-circle mr-2"></i><span><%= link_to "Q & A", questions_index_path %></span></p>
+        <p class="shadow"><i class="fas fa-chalkboard-teacher mr-2"></i><span><%= link_to "先生紹介", introductions_index_path, data: {"turbolinks" => false} %></span></p>
+        <p class="shadow"><i class="fas fa-phone mr-2"></i><span><%= link_to "お問い合わせ", new_inquiry_path %></span></p>
+      </div>
+      <div class="col-sm-9">
+        <p>Buil Vocaは、定期的に英語試験を受け続け英単語を更新してくれる先生を探しています。勤務はすべてオンラインで、主な仕事は単語の追加やサービスの質を上げるため新しいことに挑戦してもらいます。以下に募集条件を記載していますのでご確認ください。ご応募いただくには、お問い合わせホームからご連絡をお願いします。その際、<strong>名前</strong>、<strong>年齢</strong>、<strong>取得している資格</strong>を記入してご連絡してください。面接後、採用とさせていただきます。</p>
+        <ul class="mt-4 ml-4">
+          <li>英語の試験1級</li>
+          <li>TIOEC:900以上</li>
+          <li>あいえるとぅ:8.0以上</li>
+          <li>とーぷる:115以上</li>
+          <li>ネイティブ(英語が話されている国に幼少期を含め10年以上住んでいる)</li>
+        </ul>
+        <small>※上記の条件に2つ以上当てはまる方</small>
+        <p>週3日以上オンラインで勤務していただき、一日1時間から勤務可能です。基本時給ではなく入力単語一つにつきいくらかを支払うかたちにさせていただきます。新しいサービスの開発（Buil gra等）に携わっていただく場合は自給換算させていただきます。詳しくはお問い合わせもしくは、面接時にお話させていただきます。</p>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render "layouts/footer" %>

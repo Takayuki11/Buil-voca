@@ -1,45 +1,3 @@
-<% if logged_in? %>
-<div class="container mx-auto" style="width: 80vw">
-    <div class="row">
-      <div class=" col-12 col-sm-4">
-        <div class="text-center">
-          <% if @user.image? %>
-            <%= image_tag @user.image.thumb.url, class: "user-image" %>
-          <% else %>
-            <%= image_tag "default.jpg", :size => '150x150', class: "mx-auto d-block" %>
-          <% end %>
-          <div>
-            <p class="text-center"><%= @user.name %></p>
-          </div>
-          <%= render "relationships/follow_button", user: @user %>
-        </div>
-      </div>
-      <div class="col-12 col-sm-8">
-        <ul class="nav nav-tabs nav-justified mb-3">
-          <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">User's information</a></li>
-          <li class="nav-item"><a href="<%= likes_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(likes_user_path(@user)) %>">Vocabulary  <span class="badge badge-secondary"><%= @count_likes %></span></a></li>
-          <li class="nav-item"><a href="<%= followings_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followings_user_path(@user)) %>">Followings  <span class="badge badge-secondary"><%= @count_followings %></span></a></li>
-          <li class="nav-item"><a href="<%= followers_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followers_user_path(@user)) %>">Followers  <span class="badge badge-secondary"><%= @count_followers %></span></a></li>
-        </ul>
-        <div class="mb-4 d-inline-flex">
-          <p>レベル：</p>
-          <div>
-            <p><%= @user.eikenlevel %></p>
-            <p><%= @user.toeiclevel %></p>
-          </div>
-        </div>
-        <p class="mb-3" style="word-wrap: break-word;">目標：<%= @user.goal %></p>
-        <% if @user == current_user %>
-          <%= link_to "プロフィールを編集", edit_user_path(@user) %>
-        <% end %>
-      </div>
-    </div>
-    <div class="row mt-4 mb-4">
-      <div class="col-6 bg-success rounded p-4 text-center"><%= link_to "英検", eiken_words_path %></div>
-      <div class="col-6 bg-warning rounded p-4 text-center"><%= link_to "Toeic", toeic_words_path %></div>
-    </div>
-  </div>
-<% else %>
 <div class="container mx-auto" style="width: 80vw">
     <div class="main-pic">
         <img class="img-fluid" src="assets/bVmPZj6wMRETLIC1599302692_1599302740.jpg">
@@ -55,36 +13,94 @@
         ほかのユーザーのお気に入り単語も見ることができるので、お友達などとわからない単語を共有することもできます。ぜひ、Buil Vocaを利用して、英語の試験に合格しましょう！！
         </p>
     </div>
+    <div class="information mt-4">
+      <h2>お知らせ</h2>
+      <ul class="mt-4 overflow-auto" style="height: 70px;">
+        <li>
+          <span class="date">2020年12月28日</span> <span>Buil gra (ビルグラ) 追加予定のお知らせ</span>
+        </li>
+        <li>
+          <span class="date">2020年11月21日</span> <span>英語試験（TOEFL）追加予定のお知らせ</span>
+        </li>
+        <li>
+           <span class="date">2020年11月21日</span> <span>英語試験（IELTS）追加予定のお知らせ</span>
+        </li>
+        <li>
+           <span class="date">2020年10月24日</span> <span>英語試験 (Toeic) 追加</span>
+        </li>
+        <li>
+           <span class="date">2020年10月5日</span> <span>Buil voca サービス開始</span>
+        </li>
+      </ul>
+    </div>
     <div>
-        <h2 class="mt-5">テストの種類</h2>
-        <div class="tests d-flex row">
-            <div class="col-sm-6 ">
-                <h5 class="circle eiken text-center"><%= link_to "英検", login_path %></h5>
+      <h2 class="mt-5">テストの種類</h2><small>(ブランドポリシーなどの問題により、実在しない試験名を使っています。)</small>
+        <div class="tests row">
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card shadow">
+              <img class="img-fluid card-imsg-top" src="assets/bVmPZj6wMRETLIC1599302692_1599302740.jpg">
+              <div class="card-body m-0 p-0">
+                <div class="card-title m-3">
+                  <a href="">英語の試験</a>
+                </div>
+                <p class="card-text m-3">上記のリンクでホームページに飛びます。</p>
+                <%= link_to "単語一覧", login_path, class: "btn btn-success m-3" %>
+              </div>
             </div>
-            <div class="col-sm-6">
-                <h5 class="circle toeic text-center"><%= link_to "Toeic", login_path %></h5>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card shadow">
+              <img class="img-fluid card-imsg-top" src="assets/bVmPZj6wMRETLIC1599302692_1599302740.jpg">
+              <div class="card-body m-0 p-0">
+                <div class="card-title m-3">
+                  <a href="">ティオエック（TIOEC）</a>
+                </div>
+                <p class="card-text m-3">上記のリンクでホームページに飛びます。</p>
+                <%= link_to "単語一覧", login_path, class: "btn btn-success m-3" %>
+              </div>
             </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card shadow">
+              <img class="img-fluid card-imsg-top" src="assets/coming-soon-4710796_640.jpg"  style="height: 129px;">
+              <div class="card-body m-0 p-0">
+                <div class="card-title m-3">
+                  <a href="">あいえるとぅ</a>
+                </div>
+                <p class="card-text m-3">お知らせをお待ちください。</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card shadow">
+              <img class="img-fluid card-imsg-top" src="assets/coming-soon-4710796_640.jpg" style="height: 129px;">
+              <div class="card-body m-0 p-0">
+                <div class="card-title m-3">
+                  <a href="">とーぷる</a>
+                </div>
+                <p class="card-text m-3">お知らせをお待ちください。</p>
+              </div>
+            </div>
+          </div>  
         </div>
     </div>
 </div>
 
 <div class="footer">
     <footer class="mx-auto" style="width: 80vw">
-        <div class="d-flex row">
-            <div class="footer-left col-6">
-                <p>最新情報</p>
-                <p>先生紹介</p>
-                <p>求人情報</p>
-            </div>
-            <div class="footer-right col-6">
-                <p>お問い合わせ</p>
-                <address class="ml-5">
-                   <small class="d-block mb-4">電話: 090-0000-0000</small>
-                   <small class="d-block mb-4">メール: 00000@gmail.com</small>
-                   <small class="d-block">住所: 東京都～～区～～</small>
-                </address>
-            </div>
-        </div>
+      <ul class="text-center" style="list-style: none;">
+        <li class="d-inline-block" style="margin-right: 15px;"><a href="#"><i class="fab fa-twitter"></i></a></li>
+        <li class="d-inline-block" style="margin-right: 15px;"><a href="#"><i class="fab fa-instagram"></i></a></li>
+        <li class="d-inline-block" style="margin-right: 15px;"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+      </ul>
+      <div class="text-center">
+        <p class="d-inline-block mr-2"><i class="fas fa-question-circle mr-2"></i><span><%= link_to "Q & A", questions_index_path %></span></p>
+        <p class="d-inline-block mr-2"><i class="fas fa-chalkboard-teacher mr-2"></i><span><%= link_to "先生紹介", introductions_index_path, data: {"turbolinks" => false}%></span></p>
+        <p class="d-inline-block mr-2"><i class="fas fa-user mr-2"></i><span><%= link_to "求人情報", jobs_index_path %></span></p>
+        <p class="d-inline-block"><i class="fas fa-phone mr-2"></i><span><%= link_to "お問い合わせ", new_inquiry_path %></span></p>
+      </div>
+      <div class="text-center mt-3">
+        <small>© 2020 Taka</small>
+      </div>
     </footer>
 </div>
-<% end %>

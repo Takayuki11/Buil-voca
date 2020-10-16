@@ -1,13 +1,19 @@
-<ul>
-  <% words.each_with_index do |word, i| %>
-      <li>
-        <%= link_to i+1 , word %>:<%= word.content %><%= word.meaning %><%= word.example %>
-      </li>
-  <% end %>
-</ul>
+<div class-"container">
+  <div class="row">
+    <% words.each_with_index do |word, i| %>
+      <div class="col-12 col-sm-6 col-md-4 mb-2">
+        <div class="card text-center bt-3 shadow" style="padding: 25px;">
+          <p><%= link_to word.content, word %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<%= paginate words %>
+
 <% if @eiken_words %>
   <%= link_to "Toeicの単語一覧へ",  toeic_words_path %>
 <% else %>
   <%= link_to "英検の単語一覧へ",  eiken_words_path %>
 <% end %>
-  <%= paginate words %>
+  

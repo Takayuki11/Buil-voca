@@ -1,0 +1,95 @@
+<div class="mx-auto" style="width: 80vw">
+  <div class="text-center">
+    <h3>先生紹介</h3>
+  </div>
+  <div class="container pt-4">
+    <div class="row">
+      <div class="menu col-sm-3 text-center">
+        <p class="shadow"><i class="fas fa-question-circle mr-2"></i><span><%= link_to "Q & A", questions_index_path %></span></p>
+        <p class="shadow"><i class="fas fa-user mr-2"></i><span><%= link_to "求人情報", jobs_index_path %></span></p>
+        <p class="shadow"><i class="fas fa-phone mr-2"></i><span><%= link_to "お問い合わせ", new_inquiry_path %></span></p>
+      </div>
+      <div class="col-sm-9 intro">
+        <div class="row">
+          
+          <div class="col-sm-4 mt-4 mb-4 mt-sm-0 mb-sm-0">
+            <div class="card card1 teacher text-center shadow is-surface">
+              <img class="img-fluid pic mx-auto mt-4 card_surface" src="../assets/S__33136642.jpg">
+              <h3 class="mt-3 card_surface">Shadow <small>先生</small></h3>
+              <small class="card_surface">資格</small>
+              <p class="card_surface">英語の試験:1級</p>
+              <p class="card_surface">ティオエック（TIOEC）:990</p>
+              <!--ここから裏のページ-->
+              <small class="career card_reverse">出身</small>
+              <small class=" hometown card_reverse">アメリカ（カリフォルニア）</small>
+              <small class=" habit card_reverse">趣味</small>
+              <small class=" habits card_reverse">飼い主との戯れ、Tシャツで爪とぎ</small>
+              <small class=" comment card_reverse">一言</small>
+              <small class=" comments card_reverse shadow mr-1 ml-1">我はBuil vocaの開発者だにゃ。少しでも、みにゃ様の英語学習の力になればと思いBuil Vocaを開発したにゃ。日本語はちょっと苦手にゃ、でも英語はVery good。</small>
+              <a class="btn btn-success mt-4 mb-4 pro" id="teacher1">プロフィール</a>
+            </div>
+          </div>
+          
+          <div class="col-sm-4 mt-4 mb-4 mt-sm-0 mb-sm-0">
+            <div class="card card2 teacher text-center shadow is-surface">
+              <img class="img-fluid pic mx-auto mt-4 card_surface" src="../assets/S__34136067.jpg">
+              <h3 class="mt-3 card_surface">コロ <small>先生</small></h3>
+              <small class="card_surface">資格</small>
+              <p class="card_surface">ティオエック（TIOEC）:990</p>
+              <p class="card_surface">あいえるとぅ:8.5</p>
+              <!--ここから裏のページ-->
+              <small class="career card_reverse">出身</small>
+              <small class=" hometown card_reverse">日本（北海道）</small>
+              <small class=" habit card_reverse">趣味</small>
+              <small class=" habits card_reverse">穴掘り、食べる</small>
+              <small class=" comment card_reverse">一言</small>
+              <small class=" comments card_reverse  shadow mr-1 ml-1">ティオエックとあいえるとぅの単語を担当しています。国内でも英語を磨けることを信じて10年間勉強してきました。私の知識を皆さんと少しでも共有できたらなと思います。</small>
+              <a class="btn btn-success mt-4 mb-4 pro" id="teacher2" >プロフィール</a>
+              
+              </div>
+          </div>
+          
+          <div class="col-sm-4 mt-4 mb-4 mt-sm-0 mb-sm-0">
+            <div class="card card3 teacher text-center shadow is-surface">
+              <img class="img-fluid pic mx-auto mt-4 card_surface" src="../assets/S__34136066.jpg">
+              <h3 class="mt-3 card_surface">クロ<small>先生</small></h3>
+              <small class="card_surface">資格</small>
+              <p class="card_surface">英語の試験:1級</p>
+              <p class="card_surface">とーぷる:119</p>
+              <!--ここから裏のページ-->
+              <small class="career card_reverse">出身</small>
+              <small class=" hometown card_reverse">アメリカ（カリフォルニア）</small>
+              <small class=" habit card_reverse">趣味</small>
+              <small class=" habits card_reverse">ほかのネコと喧嘩</small>
+              <small class=" comment card_reverse">一言</small>
+              <small class=" comments card_reverse shadow mr-1 ml-1">主にとーぷるの単語担当だにゃ。最近さぼり気味でまだサービスはリリースできそうにないにゃ。エサをくれたら頑張るにゃ!?</small>
+              <a class="btn btn-success mt-4 mb-4 pro" id="teacher3">プロフィール</a>
+              
+              </div>
+          </div>
+          
+          <div class="col-sm-4 mt-4 mb-4">
+            <div class="card card4 teacher text-center shadow is-surface">
+              <img class="img-fluid pic mx-auto mt-4 card_surface" src="../assets/S__34136069.jpg">
+              <h3 class="mt-3 card_surface">野良ネコ<small>先生</small></h3>
+              <small class="card_surface">資格</small>
+              <p class="card_surface">あいえるとぅ:9.0</p>
+              <p class="card_surface">とーぷる:117</p>
+              <!--ここから裏のページ-->
+              <small class="career card_reverse">出身</small>
+              <small class=" hometown card_reverse">日本（埼玉）</small>
+              <small class=" habit card_reverse">趣味</small>
+              <small class=" habits card_reverse">媚を売り餌をもらう、撫でられる</small>
+              <small class=" comment card_reverse">一言</small>
+              <small class=" comments card_reverse shadow mr-1 ml-1">おい、撫でろ。</small>
+              <a class="btn btn-success mt-4 mb-4 pro" id="teacher4">プロフィール</a>
+              
+              </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render "layouts/footer" %>

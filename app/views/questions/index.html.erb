@@ -1,0 +1,173 @@
+<div class="mx-auto" style="width: 80vw">
+  <div class="text-center">
+    <h3>Q & A</h3>
+  </div>
+  <div class="container py-3">
+    <div class="row">
+      <div class="menu col-sm-3 text-center">
+        <p class="shadow"><i class="fas fa-chalkboard-teacher mr-2"></i><span><%= link_to "先生紹介", introductions_index_path, data: {"turbolinks" => false} %></span></p>
+        <p class="shadow"><i class="fas fa-user mr-2"></i><span><%= link_to "求人情報", jobs_index_path %></span></p>
+        <p class="shadow"><i class="fas fa-phone mr-2"></i><span><%= link_to "お問い合わせ", new_inquiry_path %></span></p>
+      </div>
+      <div class="col-sm-9">
+        <div class="accordion" id="faqExample">
+          
+          <div class="card">
+            <div class="card-header p-2" id="headingOne">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      Q: Buil vocaってなに？
+                    </button>
+                  </h5>
+            </div>
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne">
+                <div class="card-body">
+                  Buil Vocaとは、進化し続ける英単語アプリケーションです。​
+                  Buil Vocaは、英語試験のスペシャリストを集め、試験別に出やすい単語をまとめ、見やすくしました。Buil Vocaの教員は、皆様に実際に試験に出る英単語に触れてもらうため、英語の試験を継続的に受け続け、Buil Vocaの英単語を更新しています。<br>
+                  加えて、ユーザー機能で単語をお気に入りに入れることで、自分だけの単語帳を作ることができます。
+                  ほかのユーザーのお気に入り単語も見ることができるので、お友達などとわからない単語を共有することもできます。ぜひ、Buil Vocaを利用して、英語の試験に合格しましょう！！
+                </div>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-header p-2" id="headingTwo">
+                <h5 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  Q: 試験は何種類？
+                </button>
+              </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo">
+                <div class="card-body">
+                    現在2種類の英語試験をご利用になれますが、近日に他2種類の英語試験を追加予定です。今後Buil Vocaは積極的に試験の種類を増やしていくことを視野に入れています。Buil Vocaは、試験の種類を増やすに伴い先生を探しております。詳しくはメニューから求人情報をご参照ください。
+                </div>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-header p-2" id="headingThree">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      Q: 試験は英語だけですか？
+                    </button>
+                  </h5>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree">
+                <div class="card-body">
+                    現在は英語試験用の単語しか準備しておりませんが、随時スペイン語などのほかの言語も追加していきたいと考えております。
+                </div>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-header p-2" id="headingFore">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFore" aria-expanded="false" aria-controls="collapseFore">
+                      Q: どんな機能があるのですか？
+                    </button>
+                  </h5>
+            </div>
+            <div id="collapseFore" class="collapse" aria-labelledby="headingFore">
+                <div class="card-body">
+                    ユーザーは単語のお気に入り、ユーザー同士のフォローが可能です。お気に入りに追加することで、自分だけの単語帳を作ることができます。
+                </div>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-header p-2" id="headingFive">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                      Q: 単語の数はどのくらい？
+                    </button>
+                  </h5>
+            </div>
+            <div id="collapseFive" class="collapse" aria-labelledby="headingFive">
+                <div class="card-body">
+                    おおよそ、各テストにつき３０単語ご用意しております。現在は、サービスを始めたばかりということもあり、たくさんの単語を準備できていないのが現状です。しかし、徐々にBuil vocaの先生たちが頻出単語を更新していきます。
+                </div>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-header p-2" id="headingSix">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                      Q: 先生ってどんな人？
+                    </button>
+                  </h5>
+            </div>
+            <div id="collapseSix" class="collapse" aria-labelledby="headingSix">
+                <div class="card-body">
+                    Buil Vocaの先生は、資格のエキスパートです。その資格の単語作成に携わるため、試験を繰り返し受け続け本当にテストに出る単語を熟知しています。先生の詳細が気になったら、メニュー欄にある先生紹介をご覧ください。
+                </div>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-header p-2" id="headingSeven">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                      Q: Buil Vocaを利用する上で、端末は何を使った方がいいですか？
+                    </button>
+                  </h5>
+            </div>
+            <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven">
+                <div class="card-body">
+                    Web英単語アプリケーションの特徴は、携帯ひとつでどこでも学習できる点にあります。よって、レスポンシブデザインに対応しているため、パソコンはもちろん、携帯からもご利用いただけます。
+                </div>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-header p-2" id="headingEight">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                      Q: 最新情報はどこで確認できるの？
+                    </button>
+                  </h5>
+            </div>
+            <div id="collapseEight" class="collapse" aria-labelledby="headingEight">
+                <div class="card-body">
+                    トップページにあるお知らせからご確認いただけます。他にも、Buil Vocaのソーシャルメディア（Twitter、Instagram、Facebook）をフォローしていただく方法がございます。常時最新情報を更新していますのでそちらでご確認ください。現在のページの一番下にリンクがございますので、そこからフォローしていただけます。
+                </div>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-header p-2" id="headingNine">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                      Q: とは言っても、お高いんでしょ？
+                    </button>
+                  </h5>
+            </div>
+            <div id="collapseNine" class="collapse" aria-labelledby="headingNine">
+                <div class="card-body">
+                    Buil vocaは完全無料のアプリケーションです。課金等の機能もございませんので、安心してお使いいただけます。
+                </div>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-header p-2" id="headingTen">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+                      Q: 退会はどうやるの？
+                    </button>
+                  </h5>
+            </div>
+            <div id="collapseTen" class="collapse" aria-labelledby="headingTen">
+                <div class="card-body">
+                    ログアウトボタンの下にある、退会ボタンで簡単に退会することができます。
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!--/row-->
+  </div>
+</div>
+<%= render "layouts/footer" %>
