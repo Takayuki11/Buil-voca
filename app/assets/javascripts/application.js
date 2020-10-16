@@ -17,7 +17,6 @@
 //= require_tree .
 
 const flip = (selector) =>{
-  
     if (selector == "teacher1"){
         $(".card1").toggleClass('is-surface').toggleClass('is-reverse');
     } else if (selector == "teacher2"){
@@ -40,6 +39,4 @@ document.addEventListener("turbolinks:load"
     });
   });
   });
-  
-  //ここから cards
   
