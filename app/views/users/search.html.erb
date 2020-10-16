@@ -9,14 +9,15 @@
                <div class="col-12 col-sm-6 col-md-4 mb-2">
                     <div class="card text-center bt-3 shadow" style="padding: 25px;">
                         <% if user.image? %>
-                            <%= image_tag user.image.url, :size => '30x30', class: "user-image" %>
+                            <%= image_tag user.image.url, :size => '30x30', class: "user-image mx-auto d-block" %>
                         <% else %>
-                            <%= image_tag "/assets/default.jpg", :size => '30x30' %>
+                            <%= image_tag "/assets/default.jpg", :size => '30x30', class: "mx-auto d-block" %>
                         <% end %>
                         <div><%= user.name %></div>
-                        <p class="ml-auto"><%= link_to 'View profile', likes_user_path(user) %></p>
+                        <p><%= link_to 'View profile', likes_user_path(user) %></p>
                    </div>
                </div>
             <% end%>
        </div>
+       <% paginate @users %>
 </div>
