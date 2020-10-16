@@ -26,10 +26,11 @@ end
 end
 
 30.times do |e|
-  Word.create(
+  Word.create!(
     content: "word#{e + 1}",
     meaning: "meaning#{e + 1}",
     example: "example#{e + 1}",
+    translation: "translation#{e + 1}",
     user_id: 8,
     eiken: true,
     toeic: false
@@ -38,10 +39,11 @@ end
 
 
 30.times do |t|
-  Word.create(
+  Word.create!(
     content: "word#{t + 1}",
     meaning: "meaning#{t + 1}",
     example: "example#{t + 1}",
+    translation: "translation#{t + 1}",
     user_id: 8,
     eiken: false,
     toeic: true
