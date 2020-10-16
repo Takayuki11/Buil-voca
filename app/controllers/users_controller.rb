@@ -71,10 +71,11 @@ class UsersController < ApplicationController
   
   def search
     if params[:name].present?
-      @users = User.where(teacher: false).where('name LIKE ?', "%#{params[:name]}%").page(params[:page]).per(30)
+      @users = User.where(teacher: false).where('name LIKE ?', "%#{params[:name]}%")
     else
       @users = User.none
     end
+    @users = @users.page(params[:page]).per(30)
   end
   
   private
