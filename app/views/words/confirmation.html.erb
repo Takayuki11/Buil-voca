@@ -1,0 +1,33 @@
+<div class="container mx-auto" style="width: 80vw">
+
+  <h3 class="m-0">10問チェック</h3>
+  
+  <div class="text-right mb-3">
+    <a class="reload btn btn-success">もう一度テストを受ける</a>
+    <% if params[:eiken] %>
+      <%= link_to "単語一覧に戻る", eiken_words_path, class: "btn btn-warning" %>
+    <% elsif params[:toeic] %>
+      <%= link_to "単語一覧に戻る", toeic_words_path, class: "btn btn-warning" %>
+    <% end %>
+  </div>
+  
+  <% if params[:eiken] %>
+    <% @eiken_words.zip(@number) do |word, num| %>
+      <div class="card shadow text-center mb-3 word is-surface <%= num %>" style="padding: 140px 70px 70px 70px;">
+        <p class="card_surface"><%= word.content %><p>
+        <!--ここから裏-->
+        <p class="card_reverse meaning"><%= word.meaning %><p>
+        <a class="btn btn-success answer" style="margin-top: 40px;" id="<%= num %>"></a>
+      </div>
+    <% end %>
+  <% elsif params[:toeic] %>
+    <% @toeic_words.zip(@number) do |word, num| %>
+      <div class="card shadow text-center mb-3 word is-surface <%= num %>" style="padding: 140px 70px 70px 70px;">
+        <p class="card_surface"><%= word.content %><p>
+        <!--ここから裏-->
+        <p class="card_reverse meaning"><%= word.meaning %><p>
+        <a class="btn btn-success answer" style="margin-top: 40px;" id="<%= num %>"></a>
+      </div>
+    <% end %>
+  <% end %>
+</div>

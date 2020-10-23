@@ -2,7 +2,7 @@
   <div class="row">
     <% users.each do |user| %>
       <div class="col-12 col-sm-6 col-md-4 mb-2">
-        <div class="card text-center bt-3 shadow" style="padding: 25px;">
+        <div class="card text-center pt-3 pb-3 shadow" style="padding: 25px;">
           <% if user.image? %>
             <%= image_tag user.image.thumb.url, :size => '30x30', class: "user-image mx-auto d-block" %>
           <% else %>

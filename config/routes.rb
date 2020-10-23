@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     collection do
       get :eiken
       get :toeic
+      get :confirmation
     end
   end
   

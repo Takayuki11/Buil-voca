@@ -1,5 +1,5 @@
 <div class="container mx-auto" style="width: 80vw">
-  <div class="card shadow p-4">
+  <div class="card shadow p-4 text-center text-md-left">
     <div>
       <h1 class="mb-4"><%= @word.content%></h1>
       <p class="mb-3">意味：<%= @word.meaning %></p>
@@ -17,12 +17,12 @@
       <% end %>
     </div>
     <div>
-      <% if @word.eiken == true && @word.toeic == true %>
-        <%= link_to "一覧ページへ戻る", :back %>
-      <% elsif @word.toeic == true  %>
-        <%= link_to "一覧ページへ戻る", toeic_words_path %>
-      <% elsif @word.eiken == true %>
+      <% if params[:eiken] %>
         <%= link_to "一覧ページへ戻る", eiken_words_path %>
+      <% elsif params[:toeic]  %>
+        <%= link_to "一覧ページへ戻る", toeic_words_path %>
+      <% else %>
+      <%= link_to "一覧ページへ戻る", likes_user_path(current_user) %>
       <% end %>
     </div>
   </div>

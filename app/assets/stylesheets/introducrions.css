@@ -10,10 +10,10 @@
 }
 .card_reverse {
     position: absolute;
-    top: 5%;
+    top: 0;
     left: 0;
     right: 0;
-    margin: auto;
+    
 }
 
 /* 表面の表示 */
@@ -48,7 +48,7 @@
         transform 300ms 150ms;
 }
 
-// 裏側の要素の位置合わせ
+/*裏側の要素の位置合わせ*/
 .hometown{
     margin-top: 20px;
 }

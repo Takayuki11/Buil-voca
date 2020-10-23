@@ -90,7 +90,7 @@ class UsersController < ApplicationController
   def correct_user_destroy
     @user = User.find_by(id: params[:id])
     unless @user == current_user
-      flash[:danger] = "自分のページで退会してください。"
+      flash[:danger] = "自分の詳細ページで退会してください。"
       redirect_to likes_user_path(current_user)
     end
   end

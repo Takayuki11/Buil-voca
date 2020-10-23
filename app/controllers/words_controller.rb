@@ -22,6 +22,13 @@ class WordsController < ApplicationController
     @toeic_words = Word.where(toeic: true).page(params[:page]).per(30)
   end
   
+  def confirmation
+    word_size = 10
+    @eiken_words = Word.where(eiken: true).where( 'id >= ?', rand(Word.first.id..Word.last.id - word_size) ).limit(word_size)
+    @toeic_words = Word.where(toeic: true).where( 'id >= ?', rand(Word.first.id..Word.last.id - word_size) ).limit(word_size)
+    @number = [1,2,3,4,5,6,7,8,9,10]
+  end
+  
   def show
     @word = Word.find(params[:id])
   end
