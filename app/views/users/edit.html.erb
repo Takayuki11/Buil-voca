@@ -27,12 +27,12 @@
     </div>
     <div class="form-group d-inline-flex">
       <div>
-        <%= f.label :eikenlevel, "英検" %><br>
-        <%= f.select :eikenlevel, [["1級", "英検1級"], ["準1級", "英検準1級"], ["2級", "英検2級"], ["準2級", "英検準2級"], ["3級", "英検3級"], ["4級", "英検4級"], ["5級", "英検5級"], ["未取得", ""]], include_blank: "選択して下さい" %>
+        <%= f.label :eikenlevel, "英語の試験" %><br>
+        <%= f.select :eikenlevel, [["1級", "英語の試験 1級"], ["準1級", "英語の試験 準1級"], ["2級", "英語の試験 2級"], ["準2級", "英語の試験 準2級"], ["3級", "英語の試験 3級"], ["4級", "英語の試験 4級"], ["5級", "英語の試験 5級"], ["未取得", ""]], include_blank: "選択して下さい" %>
       </div>
       <div class="ml-2">
-        <%= f.label :toeiclevel, "Toeic" %><br>
-        <%= f.select :toeiclevel, [["900~990", "Toeic 900~990"], ["800~895", "Toeic 800~895"], ["700~795", "Toeic 700~795"], ["600~695", "Toeic 600~695"], ["500~595", "Toeic 500~595"], ["~495", "Toeic ~495"], ["未取得", ""]], include_blank: "選択して下さい", class: "ml-2" %>
+        <%= f.label :toeiclevel, "TIOEC" %><br>
+        <%= f.select :toeiclevel, [["900~990", "TIOEC 900~990"], ["800~895", "TIOEC 800~895"], ["700~795", "TIOEC 700~795"], ["600~695", "TIOEC 600~695"], ["500~595", "TIOEC 500~595"], ["~495", "TIOEC ~495"], ["未取得", ""]], include_blank: "選択して下さい", class: "ml-2" %>
       </div>
     </div>
     
